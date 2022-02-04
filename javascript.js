@@ -1,10 +1,10 @@
-/*Computer randomly returns 'Rock', 'Paper' or 'Scissors'*/
+/*Helper Function: Computer randomly returns 'Rock', 'Paper' or 'Scissors'*/
 function computerPlay() {
     const gladiators = ['Rock', 'Paper', 'Scissors'];
     return gladiators[Math.floor(Math.random() * gladiators.length)];
 }
 
-/*Capitalize function used to make playerSelection input capitalized for playRound function*/
+/*Helper Function: Capitalize function used to make playerSelection input capitalized for playRound function*/
 function capitalize(string) {
     let str2 = string
         .toLowerCase()
@@ -15,29 +15,51 @@ function capitalize(string) {
     return str1 + str2;
 }
 
-/*Plays round of game declaring winner or tie*/
+/*Helper Function: Plays round of game returning winner, loser or tie*/
 function playRound(playerSelection, computerSelection) {
     if (computerSelection === 'Rock' && playerSelection === 'Scissor') {
-        return "You Lose! Rock beats Scissors.";
+        return "Loser";
     } else if (computerSelection === 'Rock' && playerSelection === 'Paper') {
-        return "You Win! Paper beats Rock.";
+        return "Winner";
     } else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-        return "You Lose! Paper beats Rock.";
+        return "Loser";
     } else if (computerSelection === 'Paper' && playerSelection === 'Scissors') {
-        return "You Win! Scissors beats Paper.";
+        return "Winner";
     } else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
-        return "You Lose! Scissors beats Paper.";
+        return "Loser";
     } else if (computerSelection === 'Scissors' && playerSelection === "Rock") {
-        return "You Win! Rock beats Scissors.";
-    } else {
-        return "Tie, play again!"
+        return "Winner";
+    } else if (computerSelection === playerSelection) {
+        return "Tie";
     }
 }
 
+/*Currently only runs playRound*/
 function game() {
     const playerSelection = capitalize(prompt("Paper, Rock, or Scissors?"));
     const computerSelection = computerPlay();
-    return playRound(playerSelection, computerSelection);
+    const winLossCounter = [];
+
+    console.log(playerSelection);
+    console.log(computerSelection);
+    while (winLossCounter.length < 5) {
+        if (playRound(playerSelection, computerSelection) !== "Tie") {
+            winLossCounter.push(playRound(playerSelection, computerSelection));
+        } else {
+            return "Tie";
+        }
+    }  
+    
+    console.log(winLossCounter.length);
+    return winLossCounter;
 }
 
 console.log(game());
+
+/*
+1. concatenate if != T
+2. stop at .length of 5
+3. if 3 W winner, if not L
+
+Note: still needs to log each round
+*/
