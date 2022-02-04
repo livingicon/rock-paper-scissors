@@ -1,44 +1,43 @@
 /*Computer randomly returns 'Rock', 'Paper' or 'Scissors'*/
 function computerPlay() {
     const gladiators = ['Rock', 'Paper', 'Scissors'];
-    let computerSelection = gladiators[Math.floor(Math.random() * gladiators.length)];
-    return computerSelection;
+    return gladiators[Math.floor(Math.random() * gladiators.length)];
 }
 
-/*Plays round of game declaring winner
-1. Take any string input and make it formatted lowercse with first letter capitalized
-2. 
-*/
-function playRound(playerSelection, computerSelection) {
-
-    let str2 = playerSelection
+/*Capitalize function used to make playerSelection input capitalized for playRound function*/
+function capitalize(string) {
+    let str2 = string
         .toLowerCase()
         .slice(1)
-    let str1 = playerSelection
+    let str1 = string
         .slice(0, 1)
         .toUpperCase()
-    let playerSelection2 = str1 + str2;
+    return str1 + str2;
+}
 
-    if (computerSelection === 'Rock' && playerSelection2 === 'Scissor') {
+/*Plays round of game declaring winner or tie*/
+function playRound(playerSelection, computerSelection) {
+    if (computerSelection === 'Rock' && playerSelection === 'Scissor') {
         return "You Lose! Rock beats Scissors.";
-    } else if (computerSelection === 'Rock' && playerSelection2 === 'Paper') {
+    } else if (computerSelection === 'Rock' && playerSelection === 'Paper') {
         return "You Win! Paper beats Rock.";
-    } else if (computerSelection === 'Paper' && playerSelection2 === 'Rock') {
+    } else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
         return "You Lose! Paper beats Rock.";
-    } else if (computerSelection === 'Paper' && playerSelection2 === 'Scissors') {
+    } else if (computerSelection === 'Paper' && playerSelection === 'Scissors') {
         return "You Win! Scissors beats Paper.";
-    } else if (computerSelection === 'Scissors' && playerSelection2 === 'Paper') {
+    } else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
         return "You Lose! Scissors beats Paper.";
-    } else if (computerSelection === 'Scissors' && playerSelection2 === "Rock") {
+    } else if (computerSelection === 'Scissors' && playerSelection === "Rock") {
         return "You Win! Rock beats Scissors.";
     } else {
         return "Tie, play again!"
     }
 }
 
-const playerSelection = 'paPeR';
-const computerSelection = computerPlay();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    const playerSelection = capitalize(prompt("Paper, Rock, or Scissors?"));
+    const computerSelection = computerPlay();
+    return playRound(playerSelection, computerSelection);
+}
 
-
+console.log(game());
