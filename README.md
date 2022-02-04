@@ -1,1 +1,1 @@
-# rock-paper-scissors
+This is the first javascript program project in the Odin Project curriculum. The goal is to create a browser based rock paper scissors game for one player versus the computer. I will also be focusing on problem solving, defining the problem, writing pseudocode, and then breaking my problem down into smaller problems. My goal is to also make concise and understandable comments that "the code will explain to the computer". 
