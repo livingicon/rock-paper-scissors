@@ -1,14 +1,17 @@
-/*play 5 rounds that aren't tied*/
 /*when not tied, push winner or loser to counters*/
 /*compare counter length and declare winner or loser*/
 
-/*Currently only runs the prompt once*/
+/*THE GAME (should declare a winner only after 5 valid games)*/
 function game() {
-    for (let i = 0; i < 5; i++) {
+    const winLossCounter = [];
+    for (let i = 0; winLossCounter.length < 5; i++) {
         let playerSelection = capitalize(window.prompt("Paper, Rock, or Scissors?"));
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
-    }
+        if(playRound(playerSelection, computerSelection) !== "Tie" && playRound(playerSelection, computerSelection) !== "Invalid entry...check your spelling and try again.") {
+            winLossCounter.push(playRound(playerSelection, computerSelection));
+        }
+    } return winLossCounter;
 }
 
 console.log(game());
@@ -30,7 +33,7 @@ function capitalize(string) {
     return str1 + str2;
 }
 
-/*Helper Function 4: Plays round of game returning winner, loser or tie*/
+/*Helper Function 3: Plays round of game returning winner, loser or tie*/
 function playRound(playerSelection, computerSelection) {
     if (computerSelection === 'Rock' && playerSelection === 'Scissor') {
         return "Loser";
