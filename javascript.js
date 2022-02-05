@@ -1,6 +1,3 @@
-/*when not tied, push winner or loser to counters*/
-/*compare counter length and declare winner or loser*/
-
 /*THE GAME (should declare a winner only after 5 valid games)*/
 function game() {
     const winLossCounter = [];
@@ -58,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
 /*Helper Function 4: Determines winner or loser*/
 function winnerOrLoser(winLossCounter) {
     let winnerArray = winLossCounter.filter(winner => winner === "Winner");
-    if (winnerArray.length === 3) {
+    if (winnerArray.length >= 3) {
         return "You are the Winner!";
     } else {
         return "You lost...";
