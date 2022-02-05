@@ -11,7 +11,8 @@ function game() {
         if(playRound(playerSelection, computerSelection) !== "Tie" && playRound(playerSelection, computerSelection) !== "Invalid entry...check your spelling and try again.") {
             winLossCounter.push(playRound(playerSelection, computerSelection));
         }
-    } return winLossCounter;
+    } 
+    return winnerOrLoser(winLossCounter);
 }
 
 console.log(game());
@@ -51,5 +52,15 @@ function playRound(playerSelection, computerSelection) {
         return "Tie";
     } else {
         return "Invalid entry...check your spelling and try again."
+    }
+}
+
+/*Helper Function 4: Determines winner or loser*/
+function winnerOrLoser(winLossCounter) {
+    let winnerArray = winLossCounter.filter(winner => winner === "Winner");
+    if (winnerArray.length === 3) {
+        return "You are the Winner!";
+    } else {
+        return "You lost...";
     }
 }
