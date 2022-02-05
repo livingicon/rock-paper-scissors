@@ -2,8 +2,9 @@
 function game() {
     const winLossCounter = [];
     for (let i = 0; winLossCounter.length < 5; i++) {
-        let playerSelection = capitalize(window.prompt("Paper, Rock, or Scissors?"));
+        const playerSelection = capitalize(window.prompt("Paper, Rock, or Scissors?"));
         const computerSelection = computerPlay();
+        /*This is where I got stuck. I was making the playerSelection and computerSelection outside of the for loop so they were only calling once*/
         console.log(playRound(playerSelection, computerSelection));
         if(playRound(playerSelection, computerSelection) !== "Tie" && playRound(playerSelection, computerSelection) !== "Invalid entry...check your spelling and try again.") {
             winLossCounter.push(playRound(playerSelection, computerSelection));
@@ -24,10 +25,10 @@ function computerPlay() {
 function capitalize(string) {
     let str2 = string
         .toLowerCase()
-        .slice(1)
+        .slice(1);
     let str1 = string
         .slice(0, 1)
-        .toUpperCase()
+        .toUpperCase();
     return str1 + str2;
 }
 
