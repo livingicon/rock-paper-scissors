@@ -1,15 +1,14 @@
 //Buttons
-btn-rock.addEventListener('click', function (e) {
-  console.log(e.target);
-});
-btn-paper.addEventListener('click', function (e) {
-  console.log(e.target);
-});
-btn-scissors.addEventListener('click', function (e) {
-  console.log(e.target);
-});
-  
-/*THE GAME (should declare a winner only after 5 valid games)*/
+Rock.addEventListener('click', playRound);
+Paper.addEventListener('click', playRound);
+Scissors.addEventListener('click', playRound);
+
+//function playRound(e) {
+//    const playerSelection = e.target.id;
+//    console.log(playerSelection);
+//}
+
+/*  
 function game() {
   const winLossCounter = [];
   for (let i = 0; winLossCounter.length < 5; i++) {
@@ -23,15 +22,13 @@ function game() {
   return winnerOrLoser(winLossCounter);
 }
 console.log(game());
+*/
 
-/*Helper Function 1: Computer randomly returns 'Rock', 'Paper' or 'Scissors'*/
 function computerPlay() {
     const gladiators = ['Rock', 'Paper', 'Scissors'];
     return gladiators[Math.floor(Math.random() * gladiators.length)];
 }
 
-
-/*Helper Function 2: used in playerSelection function*/
 /*
 function capitalize(string) {
     let str2 = string
@@ -44,26 +41,27 @@ function capitalize(string) {
 }
 */
 
-/*Helper Function 3: Plays round of game returning winner, loser or tie*/
-function playRound(playerSelection, computerSelection) {
+function playRound(e) {
+    const playerSelection = e.target.id;
+    const computerSelection = computerPlay();
     if (computerSelection === 'Rock' && playerSelection === 'Scissor') {
-        return "Loser";
+        console.log("Loser");
     } else if (computerSelection === 'Rock' && playerSelection === 'Paper') {
-        return "Winner";
+        console.log("Winner");
     } else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-        return "Loser";
+        console.log("Loser");
     } else if (computerSelection === 'Paper' && playerSelection === 'Scissors') {
-        return "Winner";
+        console.log("Winner");
     } else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
-        return "Loser";
+        console.log("Loser");
     } else if (computerSelection === 'Scissors' && playerSelection === "Rock") {
-        return "Winner";
+        console.log("Winner");
     } else if (computerSelection === playerSelection) {
-        return "Tie";
+        console.log("Tie");
     } 
 }
 
-/*Helper Function 4: Determines winner or loser*/
+/*
 function winnerOrLoser(winLossCounter) {
     let winnerArray = winLossCounter.filter(winner => winner === "Winner");
     if (winnerArray.length >= 3) {
@@ -72,3 +70,4 @@ function winnerOrLoser(winLossCounter) {
         return "You lost...";
     }
 }
+*/
