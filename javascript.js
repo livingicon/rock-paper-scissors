@@ -6,12 +6,6 @@ Scissors.addEventListener('click', playRound);
 //DOM methods
 const rounds = document.querySelector('#rounds');
 
-function addParaText() {
-  const paragraph = document.createElement('p');
-  paragraph.textContent = "Winner";
-  rounds.appendChild(paragraph);
-}
-
 function computerPlay() {
   const gladiators = ['Rock', 'Paper', 'Scissors'];
   return gladiators[Math.floor(Math.random() * gladiators.length)];
@@ -24,13 +18,13 @@ function playRound(e) {
     (computerSelection === 'Paper' && playerSelection === 'Rock') || 
     (computerSelection === 'Scissors' && playerSelection === 'Paper')) {
         const paragraph = document.createElement('p');
-        paragraph.textContent = "Loser";
+        paragraph.textContent = `Loser: ${computerSelection} beats ${playerSelection}`;;
         rounds.appendChild(paragraph);
   } else if ((computerSelection === 'Rock' && playerSelection === 'Paper') || 
     (computerSelection === 'Paper' && playerSelection === 'Scissors') || 
     (computerSelection === 'Scissors' && playerSelection === "Rock")) {
       const paragraph = document.createElement('p');
-      paragraph.textContent = "Winner";
+      paragraph.textContent = `Winner: ${playerSelection} beats ${computerSelection}`;
       rounds.appendChild(paragraph);
   } else if (computerSelection === playerSelection) {
     const paragraph = document.createElement('p');
