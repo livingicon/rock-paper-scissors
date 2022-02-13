@@ -14,6 +14,8 @@ function computerPlay() {
 }
 
 let counter = 0;
+let wins = 0;
+let losses = 0;
 
 function playRound(e) {
   const playerSelection = e.target.id;
@@ -26,8 +28,10 @@ function playRound(e) {
       `Loser: the computer's ${computerSelection} 
       beats your ${playerSelection}`;
       rounds.appendChild(paragraph);
+      losses++;
+      console.log("losses: " + losses);
       counter++;
-      console.log(counter);
+      console.log("rounds: " + counter);
       if (counter === 5) {
         console.log("GAME OVER");
       }
@@ -39,8 +43,10 @@ function playRound(e) {
       `Winner: your ${playerSelection} 
       beats the computer's ${computerSelection}`;
       rounds.appendChild(paragraph);
+      wins++;
+      console.log("wins: " + wins);
       counter++;
-      console.log(counter);
+      console.log("rounds: " + counter);
       if (counter === 5) {
         console.log("GAME OVER");
       }
