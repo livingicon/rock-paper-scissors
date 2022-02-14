@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Paper Rock Scissors</title>
+  <link rel="stylesheet" href="style.css">
   <script src="javascript.js" defer></script>
 </head>
 <body>
@@ -18,11 +19,27 @@
     </div>
   </div>
   <div id="rounds">
-    <h2>Score:</h2>
-    <p>Player</p>
-    <p id="playerWins"></p>
-    <p>Computer</p>
-    <p id="computerWins"></p>
+
+    <div class="playerContainer">
+      <div class="playerEnergy">
+        <div class="nrg_one"></div>
+        <div class="nrg_two"></div>
+        <div class="nrg_three"></div>
+      </div>
+      <p>Player Score</p>
+      <p id="playerWins"></p>
+    </div>
+
+    <div class="computerContainer">
+      <div class="computerEnergy">
+        <div class="nrg_one"></div>
+        <div class="nrg_two"></div>
+        <div class="nrg_three"></div>
+      </div>
+      <p>Computer Score</p>
+      <p id="computerWins"></p>
+    </div>
+
     <h2>Round Results:</h2>
   </div>
 </body>

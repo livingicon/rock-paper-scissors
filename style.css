@@ -1,0 +1,29 @@
+/*Energy Bars*/
+.playerEnergy,
+.computerEnergy {
+  display: flex;
+}
+
+.playerEnergy div,
+.computerEnergy div {
+  background: green;
+  height: 15px;
+  width: 50px;
+}
+
+.nrg_one {
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+  border-left: 4px solid black;
+}
+
+.nrg_two {
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+}
+
+.nrg_three {
+  border-top: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
+}
