@@ -80,6 +80,8 @@ function winOrLose(losses) {
     const playAgain = document.createElement('button');
     playAgain.setAttribute('id', 'refresh');
     playAgain.textContent = "PLAY AGAIN";
+    playAgain.style.fontSize = '50px';
+    playAgain.style.fontWeight = 'bold';
 
     body.removeChild(game);
     results.appendChild(paragraph);
@@ -96,6 +98,8 @@ function winOrLose(losses) {
     const playAgain = document.createElement('button');
     playAgain.setAttribute('id', 'refresh');
     playAgain.textContent = "PLAY AGAIN";
+    playAgain.style.fontSize = '50px';
+    playAgain.style.fontWeight = 'bold';
 
     body.removeChild(game);
     results.appendChild(paragraph);
