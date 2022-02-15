@@ -36,7 +36,7 @@ function playRound(e) {
       `Round ${counter}: Loser
       (Your ${playerSelection} 
       loses to the computer's ${computerSelection}.)`;
-      rounds.appendChild(paragraph);
+      results.appendChild(paragraph);
       losses++;
       computerWins.textContent = `${losses}`;
       if (counter === 5) {
@@ -51,7 +51,7 @@ function playRound(e) {
       `Round ${counter}: Winner
       (Your ${playerSelection} 
       beat the computer's ${computerSelection}.)`;
-      rounds.appendChild(paragraph);
+      results.appendChild(paragraph);
       wins++;
       playerWins.textContent = `${wins}`;
       if (counter === 5) {
@@ -60,7 +60,7 @@ function playRound(e) {
   } else if (computerSelection === playerSelection) {
       const paragraph = document.createElement('p');
       paragraph.textContent = `No Count (Tie): ${playerSelection} and ${computerSelection}`;
-      rounds.appendChild(paragraph);
+      results.appendChild(paragraph);
   }
 }
 
@@ -73,31 +73,41 @@ function winOrLose(losses) {
   if (losses >= 3) {
     const paragraph = document.createElement('p');
     paragraph.textContent = "YOU LOST. GAME OVER.";
+    paragraph.style.color = 'red';
+    paragraph.style.fontWeight = 'bold';
+    paragraph.style.fontSize = '75px';
 
     const playAgain = document.createElement('button');
     playAgain.setAttribute('id', 'refresh');
     playAgain.textContent = "PLAY AGAIN";
 
     body.removeChild(game);
-    rounds.appendChild(paragraph);
-    rounds.appendChild(playAgain);
+    results.appendChild(paragraph);
+    results.appendChild(playAgain);
     refresh.addEventListener('click', reload, false);
  
   } else {
     const paragraph = document.createElement('p');
     paragraph.textContent = "YOU WON. GAME OVER.";
+    paragraph.style.color = 'green';
+    paragraph.style.fontWeight = 'bold';
+    paragraph.style.fontSize = '75px';
 
     const playAgain = document.createElement('button');
     playAgain.setAttribute('id', 'refresh');
     playAgain.textContent = "PLAY AGAIN";
 
     body.removeChild(game);
-    rounds.appendChild(paragraph);
-    rounds.appendChild(playAgain);
+    results.appendChild(paragraph);
+    results.appendChild(playAgain);
     refresh.addEventListener('click', reload, false);
   }
 }
 
 function reload() {
   reload = location.reload();
+}
+
+function energy() {
+
 }

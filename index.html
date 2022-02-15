@@ -11,6 +11,7 @@
     <h1>Paper Rock Scissors</h1>
     <p>You will be playing against the computer. 
       The competitor with the most victories after five rounds wins.
+      Click the button of your choice to play each round.
     </p>
     <div class="buttons">
       <button id="ROCK">ROCK</button>
@@ -18,13 +19,13 @@
       <button id="SCISSORS">SCISSORS</button>
     </div>
   </div>
-  <div id="rounds">
 
+  <div id="rounds">
     <div class="playerContainer">
       <div class="playerEnergy">
-        <div class="nrg_one"></div>
-        <div class="nrg_two"></div>
-        <div class="nrg_three"></div>
+        <div class="plNrgOne"></div>
+        <div class="plNrgTwo"></div>
+        <div class="plNrgThree"></div>
       </div>
       <p>Player Score</p>
       <p id="playerWins"></p>
@@ -32,15 +33,18 @@
 
     <div class="computerContainer">
       <div class="computerEnergy">
-        <div class="nrg_one"></div>
-        <div class="nrg_two"></div>
-        <div class="nrg_three"></div>
+        <div class="cmNrgOne"></div>
+        <div class="cmNrgTwo"></div>
+        <div class="cmNrgThree"></div>
       </div>
       <p>Computer Score</p>
       <p id="computerWins"></p>
     </div>
-
-    <h2>Round Results:</h2>
   </div>
+
+  <div id="results">
+    <h2>Round Results</h2>
+  </div>
+ 
 </body>
 </html>
