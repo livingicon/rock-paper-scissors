@@ -69,7 +69,7 @@ function winOrLose(losses) {
     paragraph.textContent = "YOU LOST. GAME OVER.";
     paragraph.style.color = 'red';
     paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '75px';
+    paragraph.style.fontSize = '100px';
 
     const playAgain = document.createElement('button');
     playAgain.setAttribute('id', 'refresh');
@@ -87,7 +87,7 @@ function winOrLose(losses) {
     paragraph.textContent = "YOU WON. GAME OVER.";
     paragraph.style.color = 'green';
     paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '75px';
+    paragraph.style.fontSize = '100px';
 
     const playAgain = document.createElement('button');
     playAgain.setAttribute('id', 'refresh');

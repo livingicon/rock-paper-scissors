@@ -7,10 +7,10 @@
   <script src="javascript.js" defer></script>
 </head>
 <body>
-  
+
   <div id="game">
     <h1>Paper Rock Scissors</h1>
-    <p>You will be playing against the computer. 
+    <p id="instructions">You will be playing against the computer. 
       The competitor with the most victories after five rounds wins.
       Click the button of your choice to play each round.
     </p>
@@ -24,20 +24,24 @@
   <div id="rounds">
     <div class="playerContainer">
       <div class="playerEnergy">
-        <div class="plNrgOne"></div>
+        <div class="plNrgOne">
+          <p class="energy">energy</P>
+        </div>
         <div class="plNrgTwo"></div>
         <div class="plNrgThree"></div>
       </div>
-      <p class="competitor">Player Score</p>
+      <p class="competitor">Player</p>
       <p id="playerWins"></p>
     </div>
     <div class="computerContainer">
       <div class="computerEnergy">
-        <div class="cmNrgOne"></div>
+        <div class="cmNrgOne">
+          <p class="energy">energy</P>
+        </div>
         <div class="cmNrgTwo"></div>
         <div class="cmNrgThree"></div>
       </div>
-      <p class="competitor">Computer Score</p>
+      <p class="competitor">Computer</p>
       <p id="computerWins"></p>
     </div>
   </div>

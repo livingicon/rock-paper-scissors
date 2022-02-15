@@ -3,7 +3,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: monospace;
-  background-color: rgb(165, 172, 182);
+  background-color: rgb(174, 178, 185);
   font-size: 18px;
   font-weight: bolder;
   color: #f9faf8;
@@ -30,10 +30,15 @@ p {
 /*Game*/
 #game {
   margin-top: 35px;
+  margin-bottom: 0px;
   padding: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#instructions {
+  color: rgb(165, 172, 182);
 }
 
 button {
@@ -55,6 +60,7 @@ h1 {
 
 /*Rounds*/
 #rounds {
+  margin-top: 35px;
   display: flex;
   justify-content: space-around;
   padding: 35px;
@@ -62,9 +68,16 @@ h1 {
 
 .playerContainer,
 .computerContainer {
+  background-color: rgb(109, 115, 124);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.energy {
+  margin: 0px 0px 0px 4px;
+  padding: 0px;
 }
 
 .playerEnergy,
@@ -75,7 +88,7 @@ h1 {
 .playerEnergy div,
 .computerEnergy div {
   background: green;
-  height: 15px;
+  height: 26px;
   width: 90px;
 }
 
