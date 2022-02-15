@@ -36,6 +36,7 @@ function playRound(e) {
       `Round ${counter}: Loser
       (Your ${playerSelection} 
       loses to the computer's ${computerSelection}.)`;
+      paragraph.style.color = 'red';
       results.appendChild(paragraph);
       losses++;
       computerWins.textContent = `${losses}`;
@@ -51,6 +52,7 @@ function playRound(e) {
       `Round ${counter}: Winner
       (Your ${playerSelection} 
       beat the computer's ${computerSelection}.)`;
+      paragraph.style.color = 'green';
       results.appendChild(paragraph);
       wins++;
       playerWins.textContent = `${wins}`;
