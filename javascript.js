@@ -21,16 +21,10 @@ function playRound(e) {
     (computerSelection === 'PAPER' && playerSelection === 'ROCK') || 
     (computerSelection === 'SCISSORS' && playerSelection === 'PAPER')) {
       counter++;
-      const paragraph = document.createElement('p');
-      paragraph.textContent = 
-      `Round ${counter}: Loser
-      (Your ${playerSelection} 
-      loses to the computer's ${computerSelection}.)`;
-      paragraph.style.color = 'red';
-      results.appendChild(paragraph);
       losses++;
-      computerWins.textContent = `${losses}`;
+      losing(counter, playerSelection, computerSelection);
       reduceEnergyPlayer();
+      buttonColor(e);
       if (counter === 5) {
         winOrLose(losses);
       }
@@ -38,22 +32,19 @@ function playRound(e) {
     (computerSelection === 'PAPER' && playerSelection === 'SCISSORS') || 
     (computerSelection === 'SCISSORS' && playerSelection === "ROCK")) {
       counter++;
-      const paragraph = document.createElement('p');
-      paragraph.textContent = 
-      `Round ${counter}: Winner
-      (Your ${playerSelection} 
-      beat the computer's ${computerSelection}.)`;
-      paragraph.style.color = 'green';
-      results.appendChild(paragraph);
       wins++;
-      playerWins.textContent = `${wins}`;
+      winning(counter, playerSelection, computerSelection);
       reduceEnergyComputer();
+      buttonColor(e);
       if (counter === 5) {
         winOrLose(losses);
       }
   } else if (computerSelection === playerSelection) {
+      buttonColor(e);
       const paragraph = document.createElement('p');
-      paragraph.textContent = `No Count (Tie): ${playerSelection} and ${computerSelection}`;
+      paragraph.textContent = `No Count (Tie): 
+      ${playerSelection} and ${computerSelection}`;
+      paragraph.style.color = 'rgb(165, 172, 182)';
       results.appendChild(paragraph);
   }
 }
@@ -65,40 +56,9 @@ function computerPlay() {
 
 function winOrLose(losses) {
   if (losses >= 3) {
-    const paragraph = document.createElement('p');
-    paragraph.textContent = "YOU LOST. GAME OVER.";
-    paragraph.style.color = 'red';
-    paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '100px';
-
-    const playAgain = document.createElement('button');
-    playAgain.setAttribute('id', 'refresh');
-    playAgain.textContent = "PLAY AGAIN";
-    playAgain.style.fontSize = '50px';
-    playAgain.style.fontWeight = 'bold';
-
-    body.removeChild(game);
-    results.appendChild(paragraph);
-    results.appendChild(playAgain);
-    refresh.addEventListener('click', reload, false);
- 
+    lost();
   } else {
-    const paragraph = document.createElement('p');
-    paragraph.textContent = "YOU WON. GAME OVER.";
-    paragraph.style.color = 'green';
-    paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '100px';
-
-    const playAgain = document.createElement('button');
-    playAgain.setAttribute('id', 'refresh');
-    playAgain.textContent = "PLAY AGAIN";
-    playAgain.style.fontSize = '50px';
-    playAgain.style.fontWeight = 'bold';
-
-    body.removeChild(game);
-    results.appendChild(paragraph);
-    results.appendChild(playAgain);
-    refresh.addEventListener('click', reload, false);
+    won();
   }
 }
 
@@ -130,4 +90,85 @@ function reduceEnergyComputer() {
     const damage3 = document.querySelector('.cmNrgOne');
     damage3.style.backgroundColor = "red";
   }
+}
+
+function lost() {
+  const paragraph = document.createElement('p');
+  paragraph.textContent = "YOU LOST.";
+  paragraph.style.color = 'red';
+  paragraph.style.fontWeight = 'bold';
+  paragraph.style.fontSize = '100px';
+  paragraph.style.textAlign = 'center';
+
+  const playAgain = document.createElement('button');
+  playAgain.setAttribute('id', 'refresh');
+  playAgain.textContent = "PLAY AGAIN";
+  playAgain.style.fontSize = '50px';
+  playAgain.style.fontWeight = 'bold';
+
+  body.removeChild(game);
+  results.appendChild(paragraph);
+  results.appendChild(playAgain);
+  refresh.addEventListener('click', reload, false);
+}
+
+function won() {
+  const paragraph = document.createElement('p');
+  paragraph.textContent = "YOU WON.";
+  paragraph.style.color = 'rgb(26, 202, 26)';
+  paragraph.style.fontWeight = 'bold';
+  paragraph.style.fontSize = '100px';
+  paragraph.style.textAlign = 'center';
+
+  const playAgain = document.createElement('button');
+  playAgain.setAttribute('id', 'refresh');
+  playAgain.textContent = "PLAY AGAIN";
+  playAgain.style.fontSize = '50px';
+  playAgain.style.fontWeight = 'bold';
+
+  body.removeChild(game);
+  results.appendChild(paragraph);
+  results.appendChild(playAgain);
+  refresh.addEventListener('click', reload, false);
+}
+
+function winning(counter, playerSelection, computerSelection) {
+  const paragraph = document.createElement('p');
+  paragraph.textContent = 
+  `Round ${counter}: Winner
+  (Your ${playerSelection} 
+  beat the computer's ${computerSelection}.)`;
+  paragraph.style.color = 'rgb(26, 202, 26)';
+  results.appendChild(paragraph);
+  playerWins.textContent = `${wins}`;
+}
+
+function losing(counter, playerSelection, computerSelection) {
+  const paragraph = document.createElement('p');
+  paragraph.textContent = 
+  `Round ${counter}: Loser
+  (Your ${playerSelection} 
+  loses to the computer's ${computerSelection}.)`;
+  paragraph.style.color = 'red';
+  results.appendChild(paragraph);
+  computerWins.textContent = `${losses}`;
+}
+
+function buttonColor(e) {
+  const rock = document.querySelector('#ROCK');
+  const paper = document.querySelector('#PAPER');
+  const scissors = document.querySelector('#SCISSORS');
+  if (e.target.id === 'ROCK') {
+    rock.style.backgroundColor = 'red';
+    paper.style.backgroundColor = "#3882f6";
+    scissors.style.backgroundColor = "#3882f6";
+  } else if (e.target.id === "PAPER") {
+    paper.style.backgroundColor = 'red';
+    rock.style.backgroundColor = "#3882f6";
+    scissors.style.backgroundColor = "#3882f6";
+  } else if (e.target.id === "SCISSORS") {
+    scissors.style.backgroundColor = 'red';
+    rock.style.backgroundColor = "#3882f6";
+    paper.style.backgroundColor = "#3882f6";
+  } 
 }
