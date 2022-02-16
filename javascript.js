@@ -6,7 +6,7 @@ const rounds = document.querySelector('#rounds');
 const playerWins = document.querySelector('#playerWins');
 const computerWins = document.querySelector('#computerWins');
 const game = document.querySelector('#game');
-const body = document.querySelector('body');
+const left = document.querySelector('#left-container');
 
 let counter = 0;
 let wins = 0;
@@ -44,7 +44,7 @@ function playRound(e) {
       const paragraph = document.createElement('p');
       paragraph.textContent = `No Count (Tie): 
       ${playerSelection} and ${computerSelection}`;
-      paragraph.style.color = 'rgb(165, 172, 182)';
+      paragraph.style.color = 'rgb(223, 223, 2)';
       results.appendChild(paragraph);
   }
 }
@@ -66,92 +66,95 @@ function reload() {
   reload = location.reload();
 }
 
-function reduceEnergyPlayer() {
+function reduceEnergyPlayer(e) {
   if (losses === 1) {
     const hit = document.querySelector('.plNrgThree');
-    hit.style.backgroundColor = "red";
+    hit.style.animation = "pulse .3s infinite";
+    console.log(hit.style.animation);
   } else if (losses === 2) {
     const hit2 = document.querySelector('.plNrgTwo');
-    hit2.style.backgroundColor = "red";
+    hit2.style.animation = "pulse .3s infinite";
   } else if (losses === 3) {
     const hit3 = document.querySelector('.plNrgOne');
-    hit3.style.backgroundColor = "red";
+    hit3.style.animation = "pulse .3s infinite";
   }
 }
 
 function reduceEnergyComputer() {
   if (wins === 1) {
     const damage = document.querySelector('.cmNrgThree');
-    damage.style.backgroundColor = "red";
+    damage.style.animation = "pulse .3s infinite";
   } else if (wins === 2) {
     const damage2 = document.querySelector('.cmNrgTwo');
-    damage2.style.backgroundColor = "red";
+    damage2.style.animation = "pulse .3s infinite";
   } else if (wins === 3) {
     const damage3 = document.querySelector('.cmNrgOne');
-    damage3.style.backgroundColor = "red";
+    damage3.style.animation = "pulse .3s infinite";
   }
 }
 
 function lost() {
-  const paragraph = document.createElement('p');
-  paragraph.textContent = "YOU LOST.";
-  paragraph.style.color = 'red';
-  paragraph.style.fontWeight = 'bold';
-  paragraph.style.fontSize = '100px';
-  paragraph.style.textAlign = 'center';
+    const paragraph = document.createElement('p');
+    paragraph.textContent = "YOU LOST";
+    paragraph.style.animation = "pulse 1s infinite";
+    paragraph.style.fontWeight = 'bold';
+    paragraph.style.fontSize = '100px';
+    paragraph.style.textAlign = 'center';
 
-  const playAgain = document.createElement('button');
-  playAgain.setAttribute('id', 'refresh');
-  playAgain.textContent = "PLAY AGAIN";
-  playAgain.style.fontSize = '50px';
-  playAgain.style.fontWeight = 'bold';
+    const playAgain = document.createElement('button');
+    playAgain.setAttribute('id', 'refresh');
+    playAgain.textContent = "CLICK TO PLAY AGAIN";
+    playAgain.style.fontSize = '50px';
+    playAgain.style.fontWeight = 'bold';
+    playAgain.style.margin = "20px 0px 20px";
 
-  body.removeChild(game);
-  results.appendChild(paragraph);
-  results.appendChild(playAgain);
-  refresh.addEventListener('click', reload, false);
+    left.removeChild(game);
+    results.appendChild(paragraph);
+    results.appendChild(playAgain);
+    refresh.addEventListener('click', reload, false);
 }
 
 function won() {
-  const paragraph = document.createElement('p');
-  paragraph.textContent = "YOU WON.";
-  paragraph.style.color = 'rgb(26, 202, 26)';
-  paragraph.style.fontWeight = 'bold';
-  paragraph.style.fontSize = '100px';
-  paragraph.style.textAlign = 'center';
+    const paragraph = document.createElement('p');
+    paragraph.textContent = "YOU WON";
+    paragraph.style.animation = "pulse2 2s infinite";
+    paragraph.style.fontWeight = 'bold';
+    paragraph.style.fontSize = '100px';
+    paragraph.style.textAlign = 'center';
 
-  const playAgain = document.createElement('button');
-  playAgain.setAttribute('id', 'refresh');
-  playAgain.textContent = "PLAY AGAIN";
-  playAgain.style.fontSize = '50px';
-  playAgain.style.fontWeight = 'bold';
+    const playAgain = document.createElement('button');
+    playAgain.setAttribute('id', 'refresh');
+    playAgain.textContent = "CLICK TO PLAY AGAIN";
+    playAgain.style.fontSize = '50px';
+    playAgain.style.fontWeight = 'bold';
+    playAgain.style.margin = "20px 0px 20px";
 
-  body.removeChild(game);
-  results.appendChild(paragraph);
-  results.appendChild(playAgain);
-  refresh.addEventListener('click', reload, false);
+    left.removeChild(game);
+    results.appendChild(paragraph);
+    results.appendChild(playAgain);
+    refresh.addEventListener('click', reload, false);
 }
 
 function winning(counter, playerSelection, computerSelection) {
-  const paragraph = document.createElement('p');
-  paragraph.textContent = 
-  `Round ${counter}: Winner
-  (Your ${playerSelection} 
-  beat the computer's ${computerSelection}.)`;
-  paragraph.style.color = 'rgb(26, 202, 26)';
-  results.appendChild(paragraph);
-  playerWins.textContent = `${wins}`;
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 
+    `Round ${counter}: Winner
+    (Your ${playerSelection} 
+    beat the computer's ${computerSelection}.)`;
+    paragraph.style.color = 'rgb(26, 202, 26)';
+    results.appendChild(paragraph);
+    playerWins.textContent = `${wins}`;
 }
 
 function losing(counter, playerSelection, computerSelection) {
-  const paragraph = document.createElement('p');
-  paragraph.textContent = 
-  `Round ${counter}: Loser
-  (Your ${playerSelection} 
-  loses to the computer's ${computerSelection}.)`;
-  paragraph.style.color = 'red';
-  results.appendChild(paragraph);
-  computerWins.textContent = `${losses}`;
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 
+    `Round ${counter}: Loser
+    (Your ${playerSelection} 
+    loses to the computer's ${computerSelection}.)`;
+    paragraph.style.color = 'red';
+    results.appendChild(paragraph);
+    computerWins.textContent = `${losses}`;
 }
 
 function buttonColor(e) {
