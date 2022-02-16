@@ -98,7 +98,7 @@ function lost() {
     paragraph.textContent = "YOU LOST";
     paragraph.style.animation = "pulse 1s infinite";
     paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '100px';
+    paragraph.style.fontSize = '80px';
     paragraph.style.textAlign = 'center';
 
     const playAgain = document.createElement('button');
@@ -106,7 +106,7 @@ function lost() {
     playAgain.textContent = "CLICK TO PLAY AGAIN";
     playAgain.style.fontSize = '50px';
     playAgain.style.fontWeight = 'bold';
-    playAgain.style.margin = "20px 0px 20px";
+    playAgain.style.marginLeft = '5px';
 
     left.removeChild(game);
     results.appendChild(paragraph);
@@ -119,7 +119,7 @@ function won() {
     paragraph.textContent = "YOU WON";
     paragraph.style.animation = "pulse2 2s infinite";
     paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '100px';
+    paragraph.style.fontSize = '80px';
     paragraph.style.textAlign = 'center';
 
     const playAgain = document.createElement('button');
@@ -127,7 +127,7 @@ function won() {
     playAgain.textContent = "CLICK TO PLAY AGAIN";
     playAgain.style.fontSize = '50px';
     playAgain.style.fontWeight = 'bold';
-    playAgain.style.margin = "20px 0px 20px";
+    playAgain.style.marginLeft = '5px';
 
     left.removeChild(game);
     results.appendChild(paragraph);
@@ -139,8 +139,8 @@ function winning(counter, playerSelection, computerSelection) {
     const paragraph = document.createElement('p');
     paragraph.textContent = 
     `Round ${counter}: Winner
-    (Your ${playerSelection} 
-    beat the computer's ${computerSelection}.)`;
+    (${playerSelection} 
+    beat ${computerSelection}.)`;
     paragraph.style.color = 'rgb(26, 202, 26)';
     results.appendChild(paragraph);
     playerWins.textContent = `${wins}`;
@@ -150,8 +150,8 @@ function losing(counter, playerSelection, computerSelection) {
     const paragraph = document.createElement('p');
     paragraph.textContent = 
     `Round ${counter}: Loser
-    (Your ${playerSelection} 
-    loses to the computer's ${computerSelection}.)`;
+    (${playerSelection} 
+    loses to ${computerSelection}.)`;
     paragraph.style.color = 'red';
     results.appendChild(paragraph);
     computerWins.textContent = `${losses}`;
