@@ -96,9 +96,10 @@ function reduceEnergyComputer() {
 function lost() {
     const paragraph = document.createElement('p');
     paragraph.textContent = "YOU LOST";
-    paragraph.style.animation = "pulse 1s infinite";
+    paragraph.style.animation = "pulse3 .5s infinite";
     paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '80px';
+    paragraph.style.fontSize = '100px';
+    paragraph.style.marginLeft = '0px';
     paragraph.style.textAlign = 'center';
 
     const playAgain = document.createElement('button');
@@ -106,7 +107,7 @@ function lost() {
     playAgain.textContent = "CLICK TO PLAY AGAIN";
     playAgain.style.fontSize = '50px';
     playAgain.style.fontWeight = 'bold';
-    playAgain.style.marginLeft = '5px';
+    playAgain.style.margin = "20px 0px 20px";
 
     left.removeChild(game);
     results.appendChild(paragraph);
@@ -117,9 +118,10 @@ function lost() {
 function won() {
     const paragraph = document.createElement('p');
     paragraph.textContent = "YOU WON";
-    paragraph.style.animation = "pulse2 2s infinite";
+    paragraph.style.animation = "pulse2 .5s infinite";
     paragraph.style.fontWeight = 'bold';
-    paragraph.style.fontSize = '80px';
+    paragraph.style.fontSize = '100px';
+    paragraph.style.marginLeft = '0px';
     paragraph.style.textAlign = 'center';
 
     const playAgain = document.createElement('button');
@@ -127,7 +129,7 @@ function won() {
     playAgain.textContent = "CLICK TO PLAY AGAIN";
     playAgain.style.fontSize = '50px';
     playAgain.style.fontWeight = 'bold';
-    playAgain.style.marginLeft = '5px';
+    playAgain.style.margin = "20px 0px 20px";
 
     left.removeChild(game);
     results.appendChild(paragraph);
